@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Projetos</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="conteudo topo-conteudo">
+      <span class="marca" aria-hidden="true">CP</span>
+      <div>
+        <h1>Controle de Projetos</h1>
+        <p>Cadastro e acompanhamento de projetos</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="conteudo pagina">
+    <section class="painel" aria-labelledby="titulo-cadastro">
+      <div class="cabecalho-painel">
+        <h2 id="titulo-cadastro">Novo projeto</h2>
+        <p>Preencha os dados para cadastrar um projeto.</p>
+      </div>
+
+      <form id="formProjeto">
+        <div class="campo">
+          <label for="descricao">Descri&ccedil;&atilde;o do projeto</label>
+          <input id="descricao" name="descricao" type="text" placeholder="Ex.: Sistema de Controle de Estoque" maxlength="200" required>
+        </div>
+
+        <div class="campos-data">
+          <div class="campo">
+            <label for="dataInicio">Data de in&iacute;cio</label>
+            <input id="dataInicio" name="dataInicio" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="dataFim">Data de t&eacute;rmino</label>
+            <input id="dataFim" name="dataFim" type="date" required>
+          </div>
+        </div>
+
+        <button id="btnSalvar" class="botao botao-primario" type="submit">Cadastrar projeto</button>
+        <div id="aviso" class="aviso" role="status" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-projetos">
+      <div class="linha-titulo">
+        <div>
+          <h2 id="titulo-projetos">Projetos cadastrados</h2>
+          <p>Consulte os projetos registrados no sistema.</p>
+        </div>
+        <button id="btnAtualizar" type="button" class="botao botao-secundario">Atualizar lista</button>
+      </div>
+
+      <div class="info-lista"><span id="contador">Carregando...</span></div>
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Projeto</th>
+              <th scope="col">In&iacute;cio</th>
+              <th scope="col">T&eacute;rmino</th>
+              <th scope="col">Funcion&aacute;rios</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaProjetos"></tbody>
+        </table>
+      </div>
+      <p id="estadoLista" class="estado-lista" role="status" aria-live="polite">Carregando projetos...</p>
+    </section>
+  </main>
+</body>
+</html>
